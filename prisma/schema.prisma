@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model StockQuote {
+  id            Int      @id @default(autoincrement())
+  symbol        String
+  currentPrice  Float
+  highPrice     Float
+  lowPrice      Float
+  openPrice     Float
+  previousClose Float
+  recordedAt    DateTime @default(now())
+}
