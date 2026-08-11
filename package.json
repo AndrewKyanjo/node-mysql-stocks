@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
   },
   "repository": {
     "type": "git",
@@ -13,20 +18,23 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/AndrewKyanjo/node-mysql-stocks/issues"
   },
   "homepage": "https://github.com/AndrewKyanjo/node-mysql-stocks#readme",
   "dependencies": {
+    "@prisma/adapter-mariadb": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "amqplib": "^2.0.1",
     "axios": "^1.19.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "mariadb": "^3.5.3",
     "mysql2": "^3.23.3",
     "node-cron": "^4.6.0",
-    "typeorm": "^1.1.0"
+    "typeorm": "^1.1.0",
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "@types/amqplib": "^0.10.8",
@@ -35,6 +43,7 @@
     "@types/node-cron": "^3.0.11",
     "prisma": "^7.9.1",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   }
 }
